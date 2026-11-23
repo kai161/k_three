@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f3efe6">
+  <meta name="description" content="每天两分钟，把今天轻轻放下。七个夜晚的情绪收尾仪式。">
+  <title>晚安计划 · 把今天轻轻放下</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="ambient ambient-one"></div>
+  <div class="ambient ambient-two"></div>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="/" aria-label="晚安计划首页">
+        <span class="brand-mark">☾</span>
+        <span>晚安计划</span>
+      </a>
+      <span class="quiet-label">不着急，慢慢来</span>
+    </header>
+
+    <div id="global-error" class="error-banner" role="alert" hidden></div>
+
+    <main>
+      <section id="screen-loading" class="screen loading-screen">
+        <span class="loading-moon">☾</span>
+        <p>为你留一盏灯…</p>
+      </section>
+
+      <section id="screen-write" class="screen" hidden>
+        <div class="progress-row">
+          <span id="progress-label" class="eyebrow"></span>
+          <div id="day-dots" class="day-dots" aria-label="七天进度"></div>
+        </div>
+        <div class="hero">
+          <img src="/assets/unwind.svg" alt="窗外月亮下，一杯热饮正冒着热气" width="160" height="120">
+          <p class="eyebrow">THE DAY IS OVER</p>
+          <h1>把今天，<br>轻轻放下。</h1>
+          <p class="hero-copy">不必复盘，也不必想明白。<br>用两分钟，结束工作对你的占据。</p>
+        </div>
+        <form id="reflection-form" class="card reflection-card">
+          <label for="reflection">今天，最消耗你的一件事是什么？</label>
+          <textarea id="reflection" rows="5" maxlength="200" placeholder="比如：开了一整天会，现在脑子还停不下来…" required></textarea>
+          <div class="input-meta">
+            <span><span class="privacy-dot"></span>服务器不存原文，草稿仅留在本机</span>
+            <span id="word-count">0 / 200</span>
+          </div>
+          <button id="reply-button" class="primary-button" type="submit">为今天收个尾 <span>→</span></button>
+        </form>
+        <p class="soft-note">这不是心理诊疗，只是一个照顾自己的晚间仪式。</p>
+      </section>
+
+      <section id="screen-reply" class="screen" hidden>
+        <p class="eyebrow">今晚，想对你说</p>
+        <div class="card reply-card">
+          <span id="reply-source" class="source-badge"></span>
+          <blockquote id="reply-message"></blockquote>
+          <div class="tiny-action">
+            <span>现在可以做的一件小事</span>
+            <p id="reply-action"></p>
+          </div>
+        </div>
+        <p class="section-prompt">把刚才写下的烦恼，交给一个仪式。</p>
+        <div class="ritual-options">
+          <button class="ritual-button" data-ritual="揉掉" type="button">
+            <span class="ritual-icon">◌</span>
+            <strong>揉掉它</strong>
+            <small>今晚不再反复想</small>
+          </button>
+          <button class="ritual-button" data-ritual="封存" type="button">
+            <span class="ritual-icon">□</span>
+            <strong>封存它</strong>
+            <small>明天再来处理</small>
+          </button>
+        </div>
+      </section>
+
+      <section id="screen-safety" class="screen" hidden>
+        <div class="card safety-card">
+          <span class="source-badge">请优先获得现实支持</span>
+          <h1>这一刻，不必独自承担</h1>
+          <p id="safety-message"></p>
+          <p id="safety-action" class="safety-action"></p>
+          <button id="safety-back" class="secondary-button" type="button">返回</button>
+        </div>
+      </section>
+
+      <section id="screen-ritual" class="screen ritual-screen" hidden>
+        <div class="paper-scene" aria-hidden="true">
+          <div id="paper" class="paper">今天</div>
+        </div>
+        <h1 id="ritual-title">让今晚轻一点</h1>
+        <p>这件事已经被你看见，也被你放下。</p>
+      </section>
+
+      <section id="screen-mood" class="screen" hidden>
+        <p class="eyebrow">最后，听听自己</p>
+        <h1>此刻，你更接近<br>哪一种感受？</h1>
+        <p class="hero-copy">没有标准答案，也不用强迫自己开心。</p>
+        <div class="mood-grid">
+          <button data-mood="轻松" type="button"><span>☁</span>轻松一点了</button>
+          <button data-mood="平静" type="button"><span>≈</span>比较平静</button>
+          <button data-mood="复杂" type="button"><span>◇</span>还是有些复杂</button>
+          <button data-mood="疲惫" type="button"><span>☾</span>依然很疲惫</button>
+        </div>
+      </section>
+
+      <section id="screen-complete" class="screen complete-screen" hidden>
+        <div class="completion-orbit"><span>✓</span></div>
+        <p class="eyebrow">TODAY IS ENOUGH</p>
+        <h1>今天到这里，<br>就很好。</h1>
+        <p id="completion-copy" class="hero-copy"></p>
+        <div class="card gentle-card">今晚不需要成为更好的自己。<br>好好休息，就是下一件重要的事。</div>
+        <form id="feedback-day2-form" class="feedback-form" data-day="2" hidden>
+          <label for="feedback-day2">这两天的体验，哪一刻对你有一点帮助？</label>
+          <textarea id="feedback-day2" rows="3" maxlength="500" placeholder="一句话就好，也可以直接跳过"></textarea>
+          <p>反馈会保存用于改进产品，倾诉原文不会保存。</p>
+          <button class="secondary-button" type="submit">提交反馈</button>
+          <button class="feedback-skip" data-skip-feedback type="button">暂时不说</button>
+        </form>
+        <button id="continue-button" class="primary-button" type="button">看看晚安计划 <span>→</span></button>
+      </section>
+
+      <section id="screen-locked" class="screen" hidden>
+        <div class="lock-illustration">☾</div>
+        <p class="eyebrow">你已留下两个夜晚</p>
+        <h1>把这份安静，<br>继续下去。</h1>
+        <p class="hero-copy">解锁完整 7 天晚安计划，包含每日回应、收尾仪式和一份只属于你的七日回顾。</p>
+        <form id="activation-form" class="card activation-card">
+          <label for="activation-code">输入激活码</label>
+          <input id="activation-code" autocomplete="one-time-code" placeholder="例如 UNWIND-XXXX" required>
+          <button id="activation-button" class="primary-button" type="submit">继续我的晚安计划</button>
+        </form>
+        <p class="soft-note">激活码可通过产品的数字商品店铺获取。</p>
+      </section>
+
+      <section id="screen-review" class="screen" hidden>
+        <p class="eyebrow">YOUR SEVEN EVENINGS</p>
+        <h1>这七天，<br>你都在照顾自己。</h1>
+        <div class="review-number"><strong>7</strong><span>个认真收尾的夜晚</span></div>
+        <div class="card review-card">
+          <span>最常出现的感受</span>
+          <strong id="review-mood"></strong>
+          <p id="review-message"></p>
+        </div>
+        <form id="feedback-day7-form" class="feedback-form" data-day="7" hidden>
+          <label for="feedback-day7">这七天里，哪一刻对你有一点帮助？</label>
+          <textarea id="feedback-day7" rows="3" maxlength="500" placeholder="你的真实感受，会帮助我们决定下一步"></textarea>
+          <p>反馈会保存用于改进产品，倾诉原文不会保存。</p>
+          <button class="secondary-button" type="submit">提交反馈</button>
+          <button class="feedback-skip" data-skip-feedback type="button">暂时不说</button>
+        </form>
+        <div id="review-entries" class="review-entries"></div>
+        <p class="soft-note">这份回顾不是心理评估，只是你留给自己的时间。</p>
+      </section>
+    </main>
+
+    <footer>晚安计划 · 给忙碌的一天一个温柔的句号</footer>
+  </div>
+  <script type="module" src="/app.js"></script>
+</body>
+</html>

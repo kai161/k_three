@@ -1,0 +1,9 @@
+CREATE TABLE IF NOT EXISTS feedback (
+    id BIGSERIAL PRIMARY KEY,
+    device_id TEXT NOT NULL REFERENCES devices(id),
+    day INTEGER NOT NULL CHECK (day IN (2, 7)),
+    text TEXT NOT NULL CHECK (CHAR_LENGTH(text) BETWEEN 1 AND 500),
+    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+    updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+    UNIQUE (device_id, day)
+);

@@ -1,0 +1,134 @@
+:root {
+  color-scheme: light;
+  --paper: #f3efe6;
+  --card: rgba(255, 253, 248, .84);
+  --ink: #293c35;
+  --muted: #77817a;
+  --green: #526f61;
+  --deep: #344f43;
+  --line: rgba(52, 79, 67, .12);
+  --warm: #c68568;
+  --shadow: 0 18px 55px rgba(49, 61, 52, .08);
+  font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--ink);
+  background: var(--paper);
+  -webkit-font-smoothing: antialiased;
+}
+button, textarea, input { font: inherit; }
+button { -webkit-tap-highlight-color: transparent; }
+button:focus-visible, textarea:focus-visible, input:focus-visible, a:focus-visible {
+  outline: 3px solid rgba(198, 133, 104, .4);
+  outline-offset: 3px;
+}
+[hidden] { display: none !important; }
+.ambient { position: fixed; border-radius: 50%; filter: blur(2px); pointer-events: none; }
+.ambient-one { width: 360px; height: 360px; right: -180px; top: 5%; background: rgba(163, 180, 163, .14); }
+.ambient-two { width: 280px; height: 280px; left: -160px; bottom: 4%; background: rgba(214, 179, 145, .13); }
+.app-shell { width: min(100%, 540px); min-height: 100vh; margin: 0 auto; padding: 0 24px; position: relative; }
+.topbar { height: 82px; display: flex; align-items: center; justify-content: space-between; }
+.brand { display: flex; align-items: center; gap: 9px; color: var(--ink); text-decoration: none; font-weight: 650; letter-spacing: .08em; }
+.brand-mark { display: grid; place-items: center; width: 31px; height: 31px; border: 1px solid var(--line); border-radius: 50%; color: var(--warm); font-size: 22px; }
+.quiet-label { font-size: 12px; color: var(--muted); letter-spacing: .08em; }
+main { min-height: calc(100vh - 142px); }
+.screen { padding: 22px 0 40px; animation: enter .45s ease both; }
+.loading-screen { min-height: 60vh; display: grid; place-content: center; text-align: center; color: var(--muted); }
+.loading-moon { font-size: 48px; color: var(--warm); animation: breathe 2s ease infinite; }
+.progress-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 26px; }
+.eyebrow { margin: 0 0 16px; font-size: 11px; font-weight: 650; color: var(--green); letter-spacing: .16em; text-transform: uppercase; }
+.day-dots { display: flex; gap: 6px; }
+.day-dot { width: 6px; height: 6px; border-radius: 50%; background: #d5d6cc; }
+.day-dot.done { background: var(--green); }
+.day-dot.current { width: 18px; border-radius: 4px; background: var(--warm); }
+.hero { text-align: center; }
+.hero img { width: 150px; height: 113px; object-fit: cover; border-radius: 28px; margin-bottom: 24px; box-shadow: var(--shadow); }
+.hero .eyebrow { margin-bottom: 10px; }
+h1 { margin: 0; font-family: "Songti SC", "STSong", serif; font-size: clamp(34px, 9vw, 44px); line-height: 1.3; font-weight: 600; letter-spacing: .02em; }
+h1[tabindex="-1"]:focus { outline: none; }
+.hero-copy { margin: 17px 0 26px; color: var(--muted); font-size: 14px; line-height: 1.9; }
+.card { background: var(--card); border: 1px solid rgba(255,255,255,.65); border-radius: 22px; box-shadow: var(--shadow); }
+.reflection-card { padding: 21px; }
+.reflection-card label, .activation-card label { display: block; font-size: 14px; font-weight: 600; margin-bottom: 15px; }
+textarea { width: 100%; resize: vertical; min-height: 132px; padding: 0; border: 0; color: var(--ink); background: transparent; line-height: 1.8; font-size: 15px; }
+textarea::placeholder { color: #a5aaa4; }
+textarea:focus, input:focus { outline: none; }
+.input-meta { display: flex; justify-content: space-between; gap: 8px; padding: 12px 0 18px; color: #929991; font-size: 10px; border-top: 1px solid var(--line); }
+.privacy-dot { display: inline-block; width: 5px; height: 5px; margin: 0 5px 1px 0; background: #89a18e; border-radius: 50%; }
+.primary-button, .secondary-button { width: 100%; min-height: 52px; border-radius: 15px; cursor: pointer; transition: transform .18s, background .18s; }
+.primary-button { display: flex; align-items: center; justify-content: center; gap: 14px; border: 0; color: #fffdf7; background: var(--deep); box-shadow: 0 9px 22px rgba(52, 79, 67, .17); }
+.primary-button:hover { background: #294238; transform: translateY(-1px); }
+.primary-button:disabled { opacity: .55; cursor: wait; transform: none; }
+.secondary-button { border: 1px solid var(--line); color: var(--ink); background: transparent; }
+.soft-note { margin: 18px 8px 0; text-align: center; color: #707a72; font-size: 11px; line-height: 1.7; }
+.error-banner { padding: 12px 16px; border-radius: 12px; color: #854f3e; background: #f4dfd5; font-size: 13px; line-height: 1.6; }
+.reply-card { padding: 28px 24px; margin: 28px 0; position: relative; }
+.source-badge { display: inline-block; padding: 5px 10px; border-radius: 20px; color: var(--green); background: rgba(82,111,97,.08); font-size: 10px; letter-spacing: .08em; }
+blockquote { margin: 24px 0 28px; font-family: "Songti SC", "STSong", serif; font-size: 22px; line-height: 1.8; }
+.tiny-action { padding-top: 18px; border-top: 1px solid var(--line); }
+.tiny-action span { color: var(--muted); font-size: 11px; }
+.tiny-action p { margin: 8px 0 0; font-size: 14px; line-height: 1.7; }
+.section-prompt { text-align: center; color: var(--muted); font-size: 13px; }
+.ritual-options { display: grid; grid-template-columns: 1fr 1fr; gap: 13px; margin-top: 20px; }
+.ritual-button { min-height: 146px; padding: 16px 8px; border: 1px solid var(--line); border-radius: 20px; color: var(--ink); background: rgba(255,255,255,.45); cursor: pointer; }
+.ritual-button:hover { background: rgba(255,255,255,.85); }
+.ritual-icon { display: block; margin-bottom: 10px; color: var(--warm); font-size: 30px; }
+.ritual-button strong, .ritual-button small { display: block; }
+.ritual-button strong { margin-bottom: 8px; }
+.ritual-button small { color: var(--muted); font-size: 11px; }
+.ritual-screen { min-height: 65vh; display: grid; align-content: center; text-align: center; }
+.ritual-screen h1 { font-size: 30px; }
+.ritual-screen p { color: var(--muted); font-size: 13px; }
+.paper-scene { height: 170px; display: grid; place-items: center; }
+.paper { display: grid; place-items: center; width: 116px; height: 140px; border-radius: 4px; color: #a0a092; background: #fffdf7; box-shadow: var(--shadow); transform: rotate(-5deg); }
+.paper.crumple { animation: crumple .8s ease forwards; }
+.paper.keep { animation: keep .8s ease forwards; }
+.mood-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 30px; }
+.mood-grid button { min-height: 100px; border: 1px solid var(--line); border-radius: 18px; color: var(--ink); background: var(--card); cursor: pointer; }
+.mood-grid button:hover { border-color: var(--green); }
+.mood-grid span { display: block; margin-bottom: 8px; color: var(--warm); font-size: 25px; }
+.complete-screen { text-align: center; padding-top: 50px; }
+.completion-orbit { display: grid; place-items: center; width: 112px; height: 112px; margin: 0 auto 34px; border: 1px solid rgba(82,111,97,.2); border-radius: 50%; }
+.completion-orbit span { display: grid; place-items: center; width: 76px; height: 76px; border-radius: 50%; color: #fff; background: var(--green); font-size: 27px; }
+.gentle-card { margin: 28px 0; padding: 23px; color: var(--muted); font-size: 13px; line-height: 2; }
+.lock-illustration { width: 90px; height: 90px; display: grid; place-items: center; margin: 20px auto 32px; border-radius: 50%; color: #f7edcd; background: var(--green); font-size: 48px; box-shadow: 0 0 0 17px rgba(82,111,97,.07); }
+#screen-locked { text-align: center; }
+.activation-card { margin-top: 28px; padding: 22px; text-align: left; }
+.activation-card input { width: 100%; height: 52px; margin-bottom: 13px; padding: 0 14px; border: 1px solid var(--line); border-radius: 13px; color: var(--ink); background: rgba(255,255,255,.6); text-transform: uppercase; }
+.review-number { display: flex; align-items: baseline; gap: 13px; margin: 28px 0; }
+.review-number strong { color: var(--warm); font-family: "Songti SC", serif; font-size: 72px; font-weight: 400; }
+.review-number span { color: var(--muted); font-size: 13px; }
+.review-card { padding: 24px; }
+.review-card > span { color: var(--muted); font-size: 11px; }
+.review-card > strong { display: block; margin: 8px 0 20px; font-family: "Songti SC", serif; font-size: 27px; }
+.review-card p { margin: 0; padding-top: 18px; border-top: 1px solid var(--line); font-size: 13px; line-height: 1.9; }
+.review-entries { margin: 20px 0; }
+.review-entry { display: flex; justify-content: space-between; padding: 12px 4px; border-bottom: 1px solid var(--line); color: var(--muted); font-size: 12px; }
+.safety-card { padding: 26px; line-height: 1.9; }
+.safety-card h1 { margin: 22px 0; font-size: 30px; }
+.safety-action { padding: 15px; border-radius: 12px; background: rgba(198,133,104,.09); }
+footer { padding: 20px 0 26px; text-align: center; color: #a2a69e; font-size: 10px; letter-spacing: .05em; }
+
+@keyframes enter { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes breathe { 50% { opacity: .45; transform: scale(.94); } }
+@keyframes crumple { 60% { transform: scale(.55) rotate(25deg); border-radius: 40%; } 100% { transform: scale(.15) rotate(80deg); opacity: 0; border-radius: 50%; } }
+@keyframes keep { 100% { transform: translateY(35px) scale(.75); opacity: .25; box-shadow: 0 0 0 20px rgba(82,111,97,.08); } }
+
+@media (min-width: 600px) {
+  .app-shell { padding: 0 34px; }
+  .screen { padding-top: 30px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}
+
+.feedback-form { margin: 20px 0; padding: 20px; border: 1px solid var(--line); border-radius: 18px; background: rgba(255, 253, 248, .55); text-align: left; }
+.feedback-form label { display: block; margin-bottom: 12px; font-size: 13px; font-weight: 600; line-height: 1.7; }
+.feedback-form textarea { min-height: 84px; padding: 12px; border: 1px solid var(--line); border-radius: 12px; background: rgba(255,255,255,.55); font-size: 13px; }
+.feedback-form p { margin: 10px 0 15px; color: var(--muted); font-size: 10px; line-height: 1.6; }
+.feedback-form .secondary-button { min-height: 44px; font-size: 13px; }
+.feedback-skip { display: block; margin: 12px auto 0; border: 0; color: var(--muted); background: transparent; font-size: 12px; cursor: pointer; }

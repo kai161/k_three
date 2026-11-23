@@ -1,0 +1,12 @@
+{
+  "name": "unwind-evening-plan",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test web/*.test.mjs",
+    "test:e2e": "playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.65.1"
+  }
+}
